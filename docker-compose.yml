@@ -1,0 +1,20 @@
+version: '3.8'
+services:
+  nginx:
+    image: nginx
+    volumes:
+      - ./default.conf:/etc/nginx/conf.d/default.conf:ro
+    ports:
+      - 8081:80
+  php-7.1:
+    image: php:7.1-fpm
+    expose:
+      - 9000
+    volumes:
+      - ./app:/var/www/html
+  php-7.4:
+    image: php:7.4-fpm
+    expose:
+      - 9000
+    volumes:
+      - ./app:/var/www/html
